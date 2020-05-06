@@ -16,7 +16,7 @@ public class ChatBotController {
 
     public static String get() {
         try {
-            URL url = new URL("http://localhost:8080/teona_nikabadze_WeatherAPI_war_exploded/api/weather/");
+            URL url = new URL("http://localhost:8081/teona_nikabadze_WeatherAPI_war_exploded/api/weather/");
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setRequestMethod("GET");
             conn.setRequestProperty("Accept", "application/json");
@@ -30,7 +30,7 @@ public class ChatBotController {
             String output;
             System.out.println("Output from Server :  \n");
             while ((output = br.readLine()) != null) {
-                System.out.println(output);
+                return output;
             }
             conn.disconnect();
 
