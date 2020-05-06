@@ -16,7 +16,7 @@
 
 
 <script>
-  var webSocket = new WebSocket("ws://localhost:8080/chat_bot_war_exploded/weather");
+  var webSocket = new WebSocket("ws://localhost:8080/teona_nikabadze_davaleba2_war_exploded/chat");
   var messageTextArea = document.getElementById("messageTextArea");
   webSocket.onopen = function (message) {
     processOpen(message);

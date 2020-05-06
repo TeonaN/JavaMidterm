@@ -11,7 +11,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 
-@ServerEndpoint("/weather")
+@ServerEndpoint("/chat")
 public class ChatBotController {
 
     public static String get() {
@@ -54,7 +54,7 @@ public class ChatBotController {
     @OnMessage
     public String handleMessage(String message) {
         System.out.println("MSG From Client : " + message);
-        String replayMessage = get();
+        String replayMessage = answer(message);
         System.out.println("MSG From Server : " + replayMessage);
         return replayMessage;
     }
@@ -67,6 +67,22 @@ public class ChatBotController {
     @OnError
     public void handleError(Throwable t) {
         t.printStackTrace();
+    }
+
+
+
+    public static String answer(String question) {
+        String result;
+
+        switch (question) {
+            case "all":
+                result = get();
+                break;
+            default:
+                result = "ამ კითხვაზე პასუხი არ მაქვს";
+        }
+
+        return result;
     }
 
 }
